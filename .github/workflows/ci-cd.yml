@@ -25,4 +25,4 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y ansible
         cd PHP
-        ansible-playbook -i "${{ secrets.EC2_PUBLIC_IP }}," ansible/playbook.yml
+        ansible-playbook -i "${{ secrets.EC2_PUBLIC_IP }}," ansible/playbook.yml -u ubuntu
