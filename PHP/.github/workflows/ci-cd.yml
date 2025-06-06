@@ -1,0 +1,27 @@
+name: CI/CD Deployment to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup SSH access
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts
+
+    - name: Run Ansible Playbook
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ansible
+        ansible-playbook -i "${{ secrets.EC2_PUBLIC_IP }}," ansible/playbook.yml

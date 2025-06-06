@@ -1,0 +1,33 @@
+- name: Deploy PHP Yii2 App on EC2 via Docker Swarm
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Docker
+      shell: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+      args:
+        executable: /bin/bash
+
+    - name: Add current user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Enable Docker service
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Initialize Docker Swarm
+      shell: docker swarm init || true
+
+    - name: Copy swarm-deploy.yml to server
+      copy:
+        src: ../swarm-deploy.yml
+        dest: /home/ubuntu/swam-deploy.yml
+
+    - name: Deploy stack
+      shell: docker stack deploy -c /home/ubuntu/swam-deploy.yml phpstack
