@@ -53,3 +53,15 @@ docker ps
 cd PHP
 cd www
 nano index.php 
+clear
+docker login -u phanindhrasura
+docker push phanindhrasura/php-app:latest
+git init
+git remote add origin https://github.com/Phanindhraaa/PHP.git
+git add .
+git commit -m "Initial commit: PHP Yii2 with Docker Swarm, Ansible & CI/CD"
+git push -u origin main
+git branch -m main
+git push -u origin main
+git pull origin main --allow-unrelated-histories
+git push -u origin main
