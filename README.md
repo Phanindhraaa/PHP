@@ -1,14 +1,51 @@
-# PHP Repository
+# DevOps Assessment: PHP Yii2 Application Deployment
 
-This repository contains scripts and resources primarily written in Shell and PHP, with Docker support for easy deployment and testing.
+This repository contains my work for a DevOps intern assessment. The goal was to deploy a sample PHP Yii2 application using modern DevOps tools and best practices.
 
-## Features
+## Tech Stack & Tools
 
-- Shell scripts for various automation and system tasks
-- PHP files for backend and scripting purposes
-- Dockerfile for containerized development and deployment
+- **PHP Yii2**: Sample application framework
+- **Docker Swarm**: Container orchestration for scalable deployment
+- **NGINX**: Web server and reverse proxy
+- **AWS EC2**: Cloud infrastructure for hosting
+- **Ansible**: Infrastructure automation and configuration management
+- **GitHub Actions**: CI/CD pipelines for automated build and deployment
+
+## Project Structure
+
+- `Dockerfile`: Containerizes the PHP Yii2 app
+- Shell scripts: Automation and orchestration scripts
+- Ansible playbooks: Automated provisioning and configuration
+- GitHub Actions workflows: CI/CD pipelines
+
+## Deployment Overview
+
+1. **Infrastructure**:  
+   - Provisioned AWS EC2 instances via Ansible.
+
+2. **Containerization**:  
+   - Built the Yii2 application image using the provided `Dockerfile`.
+   - Used Docker Swarm for orchestrating multiple service containers.
+
+3. **Web Server**:  
+   - Configured NGINX as a reverse proxy to the Yii2 app containers.
+
+4. **Automation**:  
+   - Automated setup and deployment using Ansible playbooks.
+
+5. **CI/CD**:  
+   - Set up GitHub Actions to automate build, test, and deployment steps.
 
 ## Getting Started
+
+### Prerequisites
+
+- Docker & Docker Compose
+- Ansible
+- AWS CLI & credentials
+- GitHub account (for CI/CD)
+
+### Steps
 
 1. **Clone the repository**
    ```bash
@@ -16,26 +53,15 @@ This repository contains scripts and resources primarily written in Shell and PH
    cd PHP
    ```
 
-2. **Using Docker (if applicable)**
-   ```bash
-   docker build -t php-repo .
-   docker run --rm -it php-repo
-   ```
+2. **Provision AWS EC2 Instances**
+   - Use the provided Ansible playbooks to spin up and configure EC2 instances.
 
-3. **Running Shell Scripts**
-   ```bash
-   chmod +x script.sh
-   ./script.sh
-   ```
+3. **Deploy with Docker Swarm**
+   - Initialize Docker Swarm and deploy the stack using the included YAML files.
 
-## Requirements
+4. **Access Application**
+   - The NGINX reverse proxy will route traffic to the Yii2 application.
 
-- Docker (optional, if using containerization)
-- PHP (if running PHP scripts directly)
-- Bash/Shell environment
+## CI/CD
 
-## Project Structure
-
-- `*.sh` - Shell scripts
-- `*.php` - PHP scripts
-- `Dockerfile` - Container setup
+- GitHub Actions workflows are defined in `.github/workflows/` to automate testing and deployment on each push.
