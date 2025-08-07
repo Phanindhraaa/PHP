@@ -1,6 +1,6 @@
 # DevOps Assessment: PHP Yii2 Application Deployment
 
-This repository contains my work for a DevOps intern assessment. The goal was to deploy a sample PHP Yii2 application using modern DevOps tools and best practices.
+This repository contains my work for a DevOps project. The goal was to deploy a sample PHP Yii2 application using modern DevOps tools and best practices.
 
 ## Tech Stack & Tools
 
