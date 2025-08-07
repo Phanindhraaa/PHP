@@ -1,13 +1,13 @@
 # DevOps Assessment: PHP Yii2 Application Deployment
 
-This repository contains my work for a DevOps project. The goal was to deploy a sample PHP Yii2 application using modern DevOps tools and best practices.
+This repository contains my work for a project@MagicBus India Foundation. The goal was to deploy a sample PHP Yii2 application using modern DevOps tools and best practices.
 
 ## Tech Stack & Tools
 
 - **PHP Yii2**: Sample application framework
 - **Docker Swarm**: Container orchestration for scalable deployment
 - **NGINX**: Web server and reverse proxy
-- **AWS EC2**: Cloud infrastructure for hosting
+- **Azure VM**: Cloud infrastructure for hosting
 - **Ansible**: Infrastructure automation and configuration management
 - **GitHub Actions**: CI/CD pipelines for automated build and deployment
 
@@ -21,7 +21,7 @@ This repository contains my work for a DevOps project. The goal was to deploy a 
 ## Deployment Overview
 
 1. **Infrastructure**:  
-   - Provisioned AWS EC2 instances via Ansible.
+   - Provisioned Azure VM instances via Ansible.
 
 2. **Containerization**:  
    - Built the Yii2 application image using the provided `Dockerfile`.
@@ -42,7 +42,7 @@ This repository contains my work for a DevOps project. The goal was to deploy a 
 
 - Docker & Docker Compose
 - Ansible
-- AWS CLI & credentials
+- Azure CLI & credentials
 - GitHub account (for CI/CD)
 
 ### Steps
@@ -54,7 +54,7 @@ This repository contains my work for a DevOps project. The goal was to deploy a 
    ```
 
 2. **Provision AWS EC2 Instances**
-   - Use the provided Ansible playbooks to spin up and configure EC2 instances.
+   - Use the provided Ansible playbooks to spin up and configure VM instances.
 
 3. **Deploy with Docker Swarm**
    - Initialize Docker Swarm and deploy the stack using the included YAML files.
